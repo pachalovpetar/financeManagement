@@ -4,11 +4,17 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @Entity
 @Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true, updatable = false)
+    private UUID id;
 
     @Column(name = "email", nullable = false, length = 25)
     private String email;
